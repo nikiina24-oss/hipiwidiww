@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>December Rain 🌧️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to bottom, #bfc9d9, #e6e9f0);
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #2f3e46;
+    }
+
+    /* ✨ FADE IN */
+    .house {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 520px;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* 🏠 ROOF */
+    .roof {
+      width: 0;
+      height: 0;
+      border-left: 260px solid transparent;
+      border-right: 260px solid transparent;
+      border-bottom: 160px solid rgba(255,255,255,0.7);
+      margin: 0 auto;
+    }
+
+    /* 🏠 BODY */
+    .body {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 0 0 24px 24px;
+      padding: 50px 40px 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    /* 🪟 WINDOW */
+    .window {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #ffd966;
+      border-radius: 8px;
+      box-shadow: 0 0 18px rgba(255,217,102,0.7);
+    }
+
+    /* 🚪 DOOR */
+    .door {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 90px;
+      background: #8b5e3c;
+      border-radius: 12px 12px 0 0;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    button {
+      margin-top: 28px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      background: #6b8ba4;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #56758f;
+    }
+
+    /* 🌧️ GERIMIS */
+    .rain {
+      position: absolute;
+      top: -100px;
+      width: 1.5px;
+      height: 18px;
+      background: rgba(255,255,255,0.5);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(120vh); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="house">
+    <div class="roof"></div>
+
+    <div class="body">
+      <div class="window"></div>
+
+      <h1>Hai Mba Fatmaww 🤍</h1>
+      <p>
+        Selamat datang pada bab baru yaa.<br><br>
+
+        Apapun itu, aku berdoa semoga Mba Fatma<br>
+        selalu dikelilingi hal-hal manis<br>
+        di setiap huruf yang Mba Fatma tulis.<br><br>
+
+        Lesgoww Mba Fatmaaa,<br>
+        kita besok keliling dunia yaa.<br>
+        Aku jajanin gelato stracciatella di Italia deh xixixi 🍨🇮🇹
+      </p>
+
+      <!-- 🎶 MUSIK -->
+      <audio id="music" loop>
+        <source src="lagu.mp3" type="audio/mpeg">
+      </audio>
+
+      <!-- 🌧️ SUARA HUJAN -->
+      <audio id="rainSound" loop autoplay>
+        <source src="rain.mp3" type="audio/mpeg">
+      </audio>
+
+      <button onclick="document.getElementById('music').play()">
+        ▶ Play Music
+      </button>
+
+      <div class="door"></div>
+    </div>
+  </div>
+
+  <!-- 🌧️ SCRIPT GERIMIS -->
+  <script>
+    const jumlahHujan = 80;
+
+    for (let i = 0; i < jumlahHujan; i++) {
+      const rain = document.createElement("div");
+      rain.classList.add("rain");
+      rain.style.left = Math.random() * window.innerWidth + "px";
+      rain.style.animationDuration = (3 + Math.random() * 3) + "s";
+      rain.style.opacity = 0.3 + Math.random() * 0.4;
+      document.body.appendChild(rain);
+    }
+  </script>
+
+</body>
+</html>
