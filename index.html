@@ -27,7 +27,7 @@
     /* ✨ FADE IN */
     .house {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       width: 90%;
       max-width: 520px;
       opacity: 0;
@@ -72,7 +72,7 @@
 
     /* 🚪 DOOR */
     .door {
-      position: absolute;
+      position: relative;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -93,7 +93,7 @@
     }
 
     button {
-      margin-top: 28px;
+      margin-top: 20px;
       padding: 12px 26px;
       border: none;
       border-radius: 30px;
@@ -154,7 +154,7 @@
         <source src="rain.mp3" type="audio/mpeg">
       </audio>
 
-      <button onclick="document.getElementById('music').play()">
+      <button class="play-btn" onclick="document.getElementById('music').play()">
         ▶ Play Music
       </button>
 
